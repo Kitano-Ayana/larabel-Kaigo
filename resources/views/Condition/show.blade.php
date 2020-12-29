@@ -36,8 +36,7 @@
                      <tbody>
                       <tr>
                       <td>{{ $condition->created_at }}</td>
-                      <td>{{ $condition->comment　}}</td>
-                      <br>
+                      <td>{{ $condition->comment }}</td><br>
                      </tr>
                      </tbody>
                     @endforeach

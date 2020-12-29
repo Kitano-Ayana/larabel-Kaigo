@@ -56,8 +56,7 @@ class ConditionController extends Controller
 
 
 
-        return redirect()->route('condition.show', 
-                   ['id' => $patient_id ]  );
+        return redirect()->route('condition.show', ['id' => $patient_id ]  );
 
     }
 
@@ -71,17 +70,9 @@ class ConditionController extends Controller
     {
         //
         $patient = Patient::find($id);
-        $conditions=Condition::where('patient_id', $id)->get();
+        $conditions = Condition::where('patient_id', $id)->get();
 
-        if($patient->gender === 0){
-            $gender = '男性';
-        } 
-        if($patient->gender ===1){
-            $gender = '女性';
-        }
-
-        return view('condition.show', 
-                     ['patient_id' => $id,'patient' => $patient,'conditions' => $conditions]);
+        return view('condition.show', ['patient_id' => $id,'patient' => $patient,'conditions' => $conditions]);
 
         
     }
