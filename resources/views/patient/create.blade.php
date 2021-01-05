@@ -4,6 +4,12 @@
 <div class="container">
 <div class="card" style="width: 35rem;">
   <div class="card-body">
+  @if (session('status'))
+    <div class="alert alert-success" role="alert">
+      {{ session('status') }}
+    </div>
+  @endif
+
     <h5 class="card-title">新規登録</h5>
     <form  method="POST" action="{{ route('patient.store')}}">
         @csrf

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Condition;
 use App\Models\Patient;
+use App\Http\Requests\StoreCondition;
 
 
 
@@ -71,8 +72,18 @@ class ConditionController extends Controller
         //
         $patient = Patient::find($id);
         $conditions = Condition::where('patient_id', $id)->get();
+        if($patient->gender === 0){
+            $gender = '男性';
+        } 
+        if($patient->gender === 1){
+            $gender = '女性';
+        } 
 
-        return view('condition.show', ['patient_id' => $id,'patient' => $patient,'conditions' => $conditions]);
+        return view('condition.show', 
+        ['patient_id' => $id,
+         'patient' => $patient,
+         'conditions' => $conditions,
+         'gender' => $gender]);
 
         
     }

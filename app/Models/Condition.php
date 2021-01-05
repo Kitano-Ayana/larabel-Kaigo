@@ -12,4 +12,8 @@ class Condition extends Model
         return $this->belongsTo('App\Patient');
     }
 
+    protected $fillable =[
+        'comment' 
+    ];
+
 }

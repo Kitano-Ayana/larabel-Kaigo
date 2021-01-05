@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Condition;
 use App\User;
+use App\Http\Requests\StorePatient;
+
 
 
 
@@ -18,15 +20,37 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
+
     {
+        //検索フォーム
+        $search = $request->input('search');
+
+        $query = DB::table('patients');
+        //もしキーワードがあれば
+        if($search !== null) {
+            //全角スペースを半角に
+            $search_split = mb_convert_kana($search, 's');
+
+            //空白で区切る
+            $search_split2 = preg_split('/[\s]+/', $search_split, -1,PREG_SPLIT_NO_EMPTY);
+           
+            //単語をループで回す
+            foreach($search_split2 as $value){
+                $query->where('patient_name','like','%'.$value.'%');
+            }
+        }
         //
-        $patients = DB::table('patients')
-        ->where('user_id', Auth::id())
-        ->select('id','patient_name', 'age', 'created_at')->get();
+        //$patients = DB::table('patients')
+        $query->where('user_id', Auth::id());
+        $query->select('id','patient_name', 'age', 'created_at');
+        $patients = $query->paginate(20);
 
-
+       if(Auth::check()) {
         return view('patient.index',compact('patients'));
+       }else{
+           return view('auth/login');
+       }
 
     }
 
@@ -38,7 +62,11 @@ class PatientController extends Controller
     public function create()
     {
         //
+        if(Auth::check()) {
         return view('patient.create');
+        }else{
+            return view('auth/login');
+        }
     }
 
     /**
@@ -52,7 +80,6 @@ class PatientController extends Controller
         //Patientのインスタンス化
         $patient = new Patient;
 
-        $condition = Condition::all();
 
         //データの保存
         $patient->user_id = Auth::id();
@@ -63,10 +90,15 @@ class PatientController extends Controller
         $patient->age = $request->input('age');
         $patient->gender = $request->input('gender');
 
+
+        
         $patient->save();
 
-
+      if(Auth::check()){
         return redirect()->route('patient.index');
+      }else{
+          return view('auth/login');
+      }
 
 
     }
@@ -82,14 +114,16 @@ class PatientController extends Controller
         //
         $patient = Patient::find($id);
         
-        if($patient->gender === 0){
+        $gender = $patient->gender;
+
+         if($patient->gender === 0){
             $gender = '男性';
         } 
-        if($patient->gender ===1){
+        if($patient->gender === 1){
             $gender = '女性';
-        }
+        } 
           //compactで変数をviewに渡す
-          if($patient->user_id = Auth::id()) {
+          if($patient->user_id == Auth::id()) {
             return view('patient.show' ,compact('patient', 'gender'),);
           }
     }
@@ -148,7 +182,7 @@ class PatientController extends Controller
         $patient = Patient::find($id);
         $patient->delete();
 
-        return redirect()->route('patient.index');
+        return redirect('patient/index');
     }
 
 }

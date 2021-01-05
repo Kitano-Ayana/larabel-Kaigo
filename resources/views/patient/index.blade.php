@@ -16,7 +16,10 @@
 
 
                     <a href="{{ route('patient.create') }}"><input class="btn btn-info" type="" value="新規登録"></a>
-
+                        <form method="GET" action="{{ route('patient.index') }}" class="form-inline">
+                            <input class="form-control mr-sm-2" name="search" type="search" placeholder="検索" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索する</button>
+                        </form>
                     <table class="table">
                     <thead>
                         <tr>
@@ -39,7 +42,7 @@
                     </tbody>
                      @endforeach 
                      </table>
-
+                     {{ $patients->links() }}
                 </div>
             </div>
         </div>

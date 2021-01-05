@@ -9,6 +9,7 @@ use App\Models\Patient;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use \Illuminate\Http\Request;
 
 
 
@@ -49,6 +50,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    protected function loggedOut(Request $request)
+    {
+        //
+        return redirect(route('welcome'));
+    }
 
    
  
