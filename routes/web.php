@@ -30,7 +30,7 @@ Route::post('condition/store','ConditionController@store')->name('condition.stor
 Route::get('condition/show/{id}','ConditionController@show')->name('condition.show');
 
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

@@ -23,15 +23,13 @@
                     </form>
 
                         <form method="GET" action=" {{route('patient.edit',['id' => $patient->id ])}}">
-                            @csrf
                             <input class="btn btn-info" type="submit" value="変更する">
                         </form>
                         <form method="POST" action="{{ route('patient.destroy',['id' => $patient->id ])}}" id="delete_{{ $patient->id }}">
                             @csrf
-                            <a href="#" class="btn btn-danger" date-id="{{ $patient->id }}" onclick="deletePost(this);">削除する</a>
+                            <a href="#" class="btn btn-danger" data-id="{{ $patient->id }}" onclick="deletePost(this);">削除する</a>
                         </form>
                         <form method="GET" action=" {{route('condition.create',['id' => $patient->id])}}">
-                            @csrf
                             <input class="btn btn-info" type="submit" value="記録する">
                         </form>
                         <a href="{{ route('patient.index') }}"><input class="btn btn-info" type="" value="一覧画面に戻る"></a>
@@ -47,7 +45,7 @@
 function deletePost(e) {
      'use strict';
      if(confirm('本当に削除していいですか？')){
-         document.getElementById('delete_' + e.datatest.id).subemit();
+         document.getElementById('delete_' + e.dataset.id).submit();
      }
 }
 

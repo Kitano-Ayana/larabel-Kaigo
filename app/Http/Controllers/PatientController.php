@@ -181,7 +181,6 @@ class PatientController extends Controller
         //
         $patient = Patient::find($id);
         $patient->delete();
-
         return redirect('patient/index');
     }
 
