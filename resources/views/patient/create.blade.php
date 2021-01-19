@@ -14,13 +14,13 @@
     <form  method="POST" action="{{ route('patient.store')}}">
         @csrf
         患者さんの名前
-        <input type="text" name="patient_name"/>
+        <input class="patient_name" type="text" name="patient_name"/>
         <br>
         メールアドレス
-        <input type="text" name="email"/>
+        <input class="patient_mail" type="text" name="email"/>
         <br>
         年齢
-        <input type="text" name="age"/>
+        <input class="patinet_age" type="text" name="age"/>
         <br>
         性別
         <input type="radio" name="gender" value="0">男性</input>

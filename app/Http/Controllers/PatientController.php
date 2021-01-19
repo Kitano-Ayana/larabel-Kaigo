@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Condition;
 use App\User;
 use App\Http\Requests\StorePatient;
+use App\Services\CheckPatientData;
 
 
 
@@ -46,12 +47,9 @@ class PatientController extends Controller
         $query->select('id','patient_name', 'age', 'created_at');
         $patients = $query->paginate(20);
 
-       if(Auth::check()) {
         return view('patient.index',compact('patients'));
-       }else{
-           return view('auth/login');
-       }
-
+       
+       
     }
 
     /**
@@ -62,11 +60,8 @@ class PatientController extends Controller
     public function create()
     {
         //
-        if(Auth::check()) {
         return view('patient.create');
-        }else{
-            return view('auth/login');
-        }
+
     }
 
     /**
@@ -94,11 +89,8 @@ class PatientController extends Controller
         
         $patient->save();
 
-      if(Auth::check()){
         return redirect()->route('patient.index');
-      }else{
-          return view('auth/login');
-      }
+      
 
 
     }
@@ -114,14 +106,8 @@ class PatientController extends Controller
         //
         $patient = Patient::find($id);
         
-        $gender = $patient->gender;
+        $gender = CheckPatientData::checkGender($patient);
 
-         if($patient->gender === 0){
-            $gender = '男性';
-        } 
-        if($patient->gender === 1){
-            $gender = '女性';
-        } 
           //compactで変数をviewに渡す
           if($patient->user_id == Auth::id()) {
             return view('patient.show' ,compact('patient', 'gender'),);
@@ -181,7 +167,8 @@ class PatientController extends Controller
         //
         $patient = Patient::find($id);
         $patient->delete();
-        return redirect('patient/index');
+        
+        return redirect()->route('patient.index');
     }
 
 }

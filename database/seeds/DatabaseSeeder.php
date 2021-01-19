@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
@@ -9,6 +10,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(PatientTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+
+        for($i = 0; $i < 50; $i++){
+            $this->call(PatientsTableSeeder::class);
+        }
     }
 }

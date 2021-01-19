@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Patient;
+use App\User;
 
-
-class PatientTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +12,7 @@ class PatientTableSeeder extends Seeder
      */
     public function run()
     {
-        //100個のダミーを追加
-        factory(Patient::class,100)->create();
+        //
+        factory(User::class,10)->create();
     }
 }

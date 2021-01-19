@@ -13,6 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    {{ phpinfo() }}
 
 
                     <a href="{{ route('patient.create') }}"><input class="btn btn-info" type="" value="新規登録"></a>
@@ -23,21 +24,23 @@
                     <table class="table">
                     <thead>
                         <tr>
-                        <th scope="col">id</th>
                         <th scope="col">名前</th>
                         <th scope="col">年齢</th>
-                        <th scope="col">登録日</th>
                         <th scope="col">詳細</th>
+                        <th scope="col">記録</th>
+                        <th scope="col">履歴</th>
+
                         </tr>
                     </thead>
                      @foreach($patients as $patient)
                     <tbody>
                         <tr>
-                        <td>{{ $patient->id }}</td>
                         <td>{{ $patient->patient_name}}</td>
                         <td>{{ $patient->age}} </td>
-                        <td>{{ $patient->created_at}}</td>
-                        <td><a href="{{ route('patient.show', ['id' => $patient->id] )}}">詳細を見る</a></td>
+                        <td><a href="{{ route('patient.show', ['id' => $patient->id] )}}">詳細</a></td>
+                        <td><a href=" {{route('condition.create',['id' => $patient->id])}}">記録</a></td>
+                        <td><a href=" {{route('condition.index',['id' => $patient->id])}}">履歴</a></td>
+
                         </tr>
                     </tbody>
                      @endforeach 

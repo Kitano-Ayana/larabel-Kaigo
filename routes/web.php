@@ -17,17 +17,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('patient/index','PatientController@index')->name('patient.index');
-Route::get('patient/create','PatientController@create')->name('patient.create');
-Route::post('patient/store','PatientController@store')->name('patient.store');
-Route::get('patient/show/{id}','PatientController@show')->name('patient.show');
-Route::get('patient/edit/{id}','PatientController@edit')->name('patient.edit');
-Route::post('patient/update/{id}','PatientController@update')->name('patient.update');
-Route::post('patient/destroy/{id}','PatientController@destroy')->name('patient.destroy');
+Route::group(['prefix' => 'patient', 'middleware' => 'auth'], function(){
+    Route::get('index','PatientController@index')->name('patient.index');
+    Route::get('create','PatientController@create')->name('patient.create');
+    Route::post('store','PatientController@store')->name('patient.store');
+    Route::get('show/{id}','PatientController@show')->name('patient.show');
+    Route::get('edit/{id}','PatientController@edit')->name('patient.edit');
+    Route::post('update/{id}','PatientController@update')->name('patient.update');
+    Route::post('destroy/{id}','PatientController@destroy')->name('patient.destroy');
+    
+});
 
-Route::get('condition/create/{id}','ConditionController@create')->name('condition.create');
-Route::post('condition/store','ConditionController@store')->name('condition.store');
-Route::get('condition/show/{id}','ConditionController@show')->name('condition.show');
+Route::group(['prefix' => 'condition', 'middleware' => 'auth'], function(){
+    Route::get('create/{id}','ConditionController@create')->name('condition.create');
+    Route::post('store','ConditionController@store')->name('condition.store');
+    Route::get('index/{id}','ConditionController@index')->name('condition.index');
+    Route::get('show/{id}','ConditionController@show')->name('condition.show');
+});
+
+
+Route::get('weight_log/show/{id}','WeightLogController@show')->name('weight_log.show');
+
+Route::get('bloodpressure/show/{id}','BloodPressureController@show')->name('bloodpressure.show');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

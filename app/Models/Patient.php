@@ -7,16 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Patient extends Model
 {
 
-    protected $fillable =[
-           'id',
-           'user_id',
-           'patient_name',
-           'email',
-           'gender'
-    ];
+
+    protected $guarded = [];
+
+    //protected $primaryKey = "user_id";
+
     public function condition()
     {
-        return $this->hasOne('App\Condition');
+        return $this->hasMany('App\Models\Condition');
 
     }
 }
