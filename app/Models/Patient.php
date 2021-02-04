@@ -10,7 +10,6 @@ class Patient extends Model
 
     protected $guarded = [];
 
-    //protected $primaryKey = "user_id";
 
     public function condition()
     {

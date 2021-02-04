@@ -12,10 +12,10 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-image: url("{{ asset('assets/images/welcom.jpg') }}");
+                color: #d3d3d3;
                 font-family: 'Nunito', sans-serif;
-                font-weight: 200;
+                font-weight: 150;
                 height: 100vh;
                 margin: 0;
             }
@@ -24,11 +24,6 @@
                 height: 100vh;
             }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
 
             .position-ref {
                 position: relative;
@@ -41,15 +36,15 @@
             }
 
             .content {
-                text-align: center;
+                text-align: left;
             }
 
             .title {
-                font-size: 84px;
+                font-size: 60px;
             }
 
             .links > a {
-                color: #636b6f;
+                color: white;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -81,7 +76,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    テスト
+                    介護記録サイト
                 </div>
 
             </div>

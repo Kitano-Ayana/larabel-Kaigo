@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
 Route::group(['prefix' => 'patient', 'middleware' => 'auth'], function(){
     Route::get('index','PatientController@index')->name('patient.index');
     Route::get('create','PatientController@create')->name('patient.create');
@@ -41,7 +43,5 @@ Route::get('weight_log/show/{id}','WeightLogController@show')->name('weight_log.
 Route::get('bloodpressure/show/{id}','BloodPressureController@show')->name('bloodpressure.show');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 

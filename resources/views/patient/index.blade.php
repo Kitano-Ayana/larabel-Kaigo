@@ -13,8 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{ phpinfo() }}
-
 
                     <a href="{{ route('patient.create') }}"><input class="btn btn-info" type="" value="新規登録"></a>
                         <form method="GET" action="{{ route('patient.index') }}" class="form-inline">

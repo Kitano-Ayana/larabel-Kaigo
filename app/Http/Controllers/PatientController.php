@@ -10,6 +10,7 @@ use App\Models\Condition;
 use App\User;
 use App\Http\Requests\StorePatient;
 use App\Services\CheckPatientData;
+use Log;
 
 
 
@@ -72,13 +73,15 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
+        //ログファイルに表示させる ddできない時のデバック方法
+       // Log::info($request->patients['patient_name']);
+
         //Patientのインスタンス化
         $patient = new Patient;
 
 
         //データの保存
         $patient->user_id = Auth::id();
-        //dd($patient);
         $patient->id = $request->input('id');
         $patient->patient_name = $request->input('patient_name');
         $patient->email = $request->input('email');
@@ -165,9 +168,15 @@ class PatientController extends Controller
     public function destroy($id)
     {
         //
+       // 
+
         $patient = Patient::find($id);
+
+        Log::info($patient['id']);
+
         $patient->delete();
-        
+
+
         return redirect()->route('patient.index');
     }
 
