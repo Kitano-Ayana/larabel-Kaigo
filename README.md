@@ -11,7 +11,7 @@
 PHP 8.0.0
 Laravel Framework 6.20.7<br>
 
-**フロントエンド**
+**フロントエンド**<br>
 HTML/CSS/Bootstrap4.5<br>
 
 **インフラ**<br>
@@ -20,7 +20,7 @@ mysql 5.5.68-MariaDB/ AWS(EC2,S3)<br>
 **その他の使用技術**<br>
  git(gitHub) / Visual Studio Code 
 
-##サイトへのリンク　テストユーザー<br>
+## サイトへのリンク　テストユーザー<br>
 URL： http://3.113.96.103/　<br>
 【テストユーザー】          <br>
 名前：test1             <br>
