@@ -59,6 +59,7 @@ class PatientTest extends TestCase
 
       public function testDestroy()
     {
+      
         $user     = factory(User::class)->create();
 
         $patient = new Patient;
