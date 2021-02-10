@@ -38,7 +38,7 @@ Route::group(['prefix' => 'condition', 'middleware' => 'auth'], function(){
 });
 
 
-Route::get('weight_log/show/{id}','WeightLogController@show')->name('weight_log.show');
+Route::get('weightlog/show/{id}','WeightLogController@show')->name('weightlog.show');
 
 Route::get('bloodpressure/show/{id}','BloodPressureController@show')->name('bloodpressure.show');
 

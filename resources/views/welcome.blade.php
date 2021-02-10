@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>テストサイト</title>
+        <title>Care Wing 介護記録サイト</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -76,7 +76,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    介護記録サイト
+                    Care Wing 介護記録サイト
                 </div>
 
             </div>

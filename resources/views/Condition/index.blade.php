@@ -28,7 +28,7 @@
                     <table class="table">
                     <div class="log">
                     <p>過去の記録</p>
-                    <a href="{{ route('weight_log.show', ['id' => $patient->id]) }} ">体重</a>
+                    <a href="{{ route('weightlog.show', ['id' => $patient->id]) }} ">体重</a>
                     <a href="{{ route('bloodpressure.show', ['id' => $patient->id]) }} ">血圧</a>
                     </div>
                     <thead>
