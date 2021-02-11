@@ -35,6 +35,7 @@ URL： http://3.113.96.103　<br>
 
 
 【患者様の登録】
+<img width="554" alt="laravel-patient-index" src="https://user-images.githubusercontent.com/76683891/107608748-25c1be80-6c80-11eb-985f-6e4be6ab8977.png">
 
 
 【患者様の変化を確認】
