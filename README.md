@@ -50,4 +50,11 @@ URL： http://3.113.96.103　<br>
 
 
 　<img width="773" alt="laravel-graph-blood" src="https://user-images.githubusercontent.com/76683891/107608794-51dd3f80-6c80-11eb-9856-f13f85caf438.png">
+ 
+ 
+##その他事項
+　私のポートフォリオを以下に掲載しています。このサイトを見て面白そう！と思ってくれた方や製作者である私に興味を持って頂いた方いましたら、こちらのサイトまで遊びに来てくれると嬉しいです！<br>
+ <a href="http://www.ayanaportfolio.com"><h1>ポートフォリオはこちら</h1>
 
+【患者様の登録】思って
+【患者様の登録】
