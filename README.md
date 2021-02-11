@@ -35,13 +35,14 @@ URL： http://3.113.96.103　<br>
 
 
 【患者様の登録】
+　　患者様を登録したあと、自分の担当患者を一覧で見ることができます。
 
-
-<img width="554" alt="laravel-patient-index" src="https://user-images.githubusercontent.com/76683891/107608748-25c1be80-6c80-11eb-985f-6e4be6ab8977.png">
+   <img width="554" alt="laravel-patient-index" src="https://user-images.githubusercontent.com/76683891/107608748-25c1be80-6c80-11eb-985f-6e4be6ab8977.png">
 
 
 【患者様の変化を確認】
+　　患者様の体重・血圧の変化を過去一ヶ月分グラフで確認できます。
 
 
-<img width="773" alt="laravel-graph-blood" src="https://user-images.githubusercontent.com/76683891/107608794-51dd3f80-6c80-11eb-9856-f13f85caf438.png">
+　<img width="773" alt="laravel-graph-blood" src="https://user-images.githubusercontent.com/76683891/107608794-51dd3f80-6c80-11eb-9856-f13f85caf438.png">
 
