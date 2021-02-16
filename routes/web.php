@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 
+
 Auth::routes();
 
 Route::group(['prefix' => 'patient', 'middleware' => 'auth'], function(){
