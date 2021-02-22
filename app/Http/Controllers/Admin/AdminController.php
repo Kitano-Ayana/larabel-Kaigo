@@ -58,11 +58,13 @@ class AdminController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
+        $gender = CheckPatientData::checkGender($patient);
+
 
         $condition = Condition::find($id);
 
 
-        return view('admin.patient.show',compact('patient'));
+        return view('admin.patient.show',compact('patient','gender'));
 
         
     }
