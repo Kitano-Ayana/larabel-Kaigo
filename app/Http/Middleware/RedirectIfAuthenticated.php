@@ -6,7 +6,7 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Patient;
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 
@@ -23,12 +23,12 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-
-        if (Auth::guard($guard)->check()) {
-            //return redirect(RouteServiceProvider::HOME);
-            return redirect('patient/index');
+        if (Auth::guard($guard)->check() && $guard === 'user') {
+            return redirect(RouteServiceProvider::HOME);
+        } elseif (Auth::guard($guard)->check() && $guard === 'admin') {
+            return redirect(RouteServiceProvider::ADMIN_HOME);
         }
 
-        return $next($request);
+          return $next($request);
     }
 }

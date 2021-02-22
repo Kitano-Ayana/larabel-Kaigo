@@ -11,9 +11,5 @@ class Patient extends Model
     protected $guarded = [];
 
 
-    public function condition()
-    {
-        return $this->hasMany('App\Models\Condition');
-
-    }
+    
 }
