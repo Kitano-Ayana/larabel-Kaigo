@@ -15,11 +15,14 @@
                 <h5 class="card-title"></h5>
                     <form  method="GET" action="{{ route('user.patient.store')}}">
                         @csrf
-                        名前：{{ $patient->patient_name}}<br>
-                        メールアドレス：{{ $patient->email}}<br>
-                        年齢：{{ $patient->age}}<br>
-                        性別：{{ $patient->gender}}<br>
-                        作成日：{{ $patient->created_at}}<br>
+                        作成日：{{ $condition->created_at}}<br>
+                        コメント：{{ $condition->comment}}<br>
+                        体重：{{ $condition->weight }}Kg<br>
+                        血圧　収縮期：{{ $condition->high_pressure}}mmHg<br>
+                        血圧　拡張期：{{ $condition->low_pressure}}mmHg<br>
+                        トイレ：{{ $toilet}}<br>
+                        薬の服用：{{ $medicine}}
+
                     </form>
 
                         <a href="{{ route('admin.patient.index',['id' => $patient->id]) }}"><input class="btn btn-info" type="" value="一覧画面に戻る"></a>

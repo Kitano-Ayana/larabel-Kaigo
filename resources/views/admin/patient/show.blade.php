@@ -17,7 +17,7 @@
                         名前：{{ $patient->patient_name}}<br>
                         メールアドレス：{{ $patient->email}}<br>
                         年齢：{{ $patient->age}}<br>
-                        性別：{{ $patient->gender}}<br>
+                        性別：{{ $gender}}<br>
                         作成日：{{ $patient->created_at}}<br>
                     </form>
 

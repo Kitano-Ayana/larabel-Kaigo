@@ -57,13 +57,15 @@
                 margin-bottom: 30px;
             }
 
-            .job{
+            .job {
                 padding-top: 100px;
                 width: 200px;
                 align-items: center;
                 margin: 0 auto;
-                text-decoration: none;
 
+            }
+            .job a{
+                text-decoration: none;
             }
             h1{
                 text-align: center;
