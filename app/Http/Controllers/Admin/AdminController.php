@@ -106,9 +106,8 @@ class AdminController extends Controller
             $medicine = '服用未確認';
         }
         
-        if($condition->patient_id == $patient->id) {
         return view('admin.condition.show', compact('condition','toilet','medicine','patient'));
-        }
+        
 
 
     }

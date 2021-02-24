@@ -10,6 +10,8 @@ use App\Models\Condition;
 use App\Models\Patient;
 use App\Http\Requests\StoreCondition;
 use App\Services\CheckPatientData;
+use App\Services\CheckConditionData;
+
 
 
 
@@ -109,21 +111,21 @@ class ConditionController extends Controller
         $patient = Patient::find($patient_id);
     
         if($condition->toilet === 0){
-          $toilet = 'トイレあり';
-        }
-        if($condition->toilet === 1){
-            $toilet = 'トイレなし';
-        }
+            $toilet = 'トイレあり';
+          }
+          if($condition->toilet === 1){
+              $toilet = 'トイレなし';
+          }
 
-        if($condition->medicine === 0){
+          if($condition->medicine === 0){
             $medicine = '服用確認';
         }else{
             $medicine = '服用未確認';
         }
-        
-        if($condition->patient_id == $patient->id) {
+
+         
         return view('user.condition.show', compact('condition','toilet','medicine','patient'));
-        }
+        
 
         
     }
