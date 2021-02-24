@@ -13,10 +13,9 @@ class PatientsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create('ja_JP');
         
        
-        $patients = factory(Patient::class, 25)->create();
+     factory(Patient::class, 25)->create();
                
                 
         
