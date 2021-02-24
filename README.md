@@ -26,26 +26,30 @@ mysql 5.5.68-MariaDB/ AWS(EC2,S3)<br>
 
 ## サイトへのリンク　テストユーザー<br>
 URL： http://3.113.96.103　<br>
-【テストユーザー】          <br>
+【テストユーザー：介護士】          <br>
 名前：test1             <br>
 メールアドレス：test1@test.com <br>
+パスワード:12345678
+【テストユーザー：医師】          <br>
+名前：admin             <br>
+メールアドレス：admin@example.com <br>
 パスワード:12345678
 
 ## 操作説明
 【介護士の登録】
- まずは利用する介護士の登録を行います。<br>
+ まずは利用する介護士または医師の登録を行います。<br>
 <img width="798" alt="スクリーンショット 2021-02-10 23 18 54" src="https://user-images.githubusercontent.com/76683891/107521865-65dc5f00-6bf6-11eb-8c44-cdd405b9a9df.png">
 
 
 
 
-【患者様の登録】
+【介護士：患者様の登録】
 　　患者様を登録したあと、自分の担当患者を一覧で見ることができます。<br>
 
    <img width="554" alt="laravel-patient-index" src="https://user-images.githubusercontent.com/76683891/107608748-25c1be80-6c80-11eb-985f-6e4be6ab8977.png">
 
 
-【患者様の変化を確認】
+【介護士：患者様の変化を確認】
 　　患者様の体重・血圧の変化を過去一ヶ月分グラフで確認できます。<br>
 
 
