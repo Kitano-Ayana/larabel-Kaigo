@@ -18,4 +18,6 @@ class HomeController extends Controller
         return view('user.home');
     }
 
+    
+
 }

@@ -16,15 +16,15 @@ class PatientsTableSeeder extends Seeder
         $faker = Faker::create('ja_JP');
         
 
-            for($i = 1; $i < 11; $i++){
+            
                 Patient::create([
-                    'user_id' => $i,
+                    'user_id' => 1,
                     'patient_name'=> $faker->name,
                     'email' => $faker->unique()->email,
                     'gender'=>$faker->randomElement(['0','1']),
                     'age'=> $faker->randomNumber(2),        
                 ]);
-            }
+            
         
     }
 }

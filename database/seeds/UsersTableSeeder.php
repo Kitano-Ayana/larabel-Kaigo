@@ -13,7 +13,12 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(User::class,10)->create();
+        DB::table('users')->insert([
+            'name'              => 'test1',
+            'email'             => 'test1@test.com',
+            'password'          => Hash::make('12345678'),
+            'remember_token'    => Str::random(10),
+        ]);
 
         
     }

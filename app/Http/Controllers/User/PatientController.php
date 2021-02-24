@@ -26,6 +26,7 @@ class PatientController extends Controller
     public function index(Request $request)
 
     {
+
         //検索フォーム
         $search = $request->input('search');
 
@@ -43,11 +44,12 @@ class PatientController extends Controller
                 $query->where('patient_name','like','%'.$value.'%');
             }
         }
-        //
+                //
         //$patients = DB::table('patients')
         $query->where('user_id', Auth::id());
         $query->select('id','patient_name', 'age', 'created_at');
-        $patients = $query->paginate(20);
+        $patients = $query->paginate(15);
+      
 
         return view('user.patient.index',compact('patients'));
        
