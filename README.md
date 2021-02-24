@@ -29,7 +29,7 @@ URL： http://3.113.96.103　<br>
 【テストユーザー：介護士】          <br>
 名前：test1             <br>
 メールアドレス：test1@test.com <br>
-パスワード:12345678
+パスワード:12345678　　　　　<br>
 【テストユーザー：医師】          <br>
 名前：admin             <br>
 メールアドレス：admin@example.com <br>
