@@ -25,7 +25,7 @@
                     </form>
 
                         
-                    <a href="{{ route('admin.patient.index') }}"><input class="btn btn-info" type="" value="一覧画面に戻る"></a>
+                    <a href="{{ route('user.patient.index') }}"><input class="btn btn-info" type="" value="一覧画面に戻る"></a>
 
               </div>
         </div>

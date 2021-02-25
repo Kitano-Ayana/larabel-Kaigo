@@ -17,7 +17,7 @@ class ConditionsTableSeeder extends Seeder
         $faker = Faker::create('ja_JP');
 
 
-        for($id = 1; $id < 30; $id++){
+        for($id = 1; $id < 26; $id++){
             Condition::create([
                 'patient_id' => $id,
                 'comment'=> $faker->realText(20),

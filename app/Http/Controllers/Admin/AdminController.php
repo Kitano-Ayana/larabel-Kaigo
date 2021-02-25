@@ -31,7 +31,8 @@ class AdminController extends Controller
         return view('admin.user',compact('users'));
 
     }
-    //$id = $user->id
+
+    
     public function patientIndex($id)
     {
         $user = User::find($id);
