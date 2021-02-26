@@ -48,9 +48,6 @@ class ConditionController extends Controller
          'gender' => $gender
          ]);
 
-         
-
-
         
     }
 
@@ -111,20 +108,12 @@ class ConditionController extends Controller
 
         $patient_id = $condition->patient_id;
         $patient = Patient::find($patient_id);
+
+        //トイレデータを
+        $toilet = CheckConditionData::checkToilet($condition);
+
+        $medicine = CheckConditionData::checkMedicine($condition);
     
-        //トイレ項目０の時はトイレあり、トイレ項目1の時はトイレなしと表示
-        if($condition->toilet === 0){
-            $toilet = 'トイレあり';
-          }
-          if($condition->toilet === 1){
-              $toilet = 'トイレなし';
-          }
-
-
-          //服用確認0の時は服用確認と表示する
-          if($condition->medicine === 0){
-            $medicine = '服用確認';
-        }
          
         return view('user.condition.show', compact('condition','toilet','medicine','patient'));
         

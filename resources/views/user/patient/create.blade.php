@@ -10,6 +10,16 @@
     </div>
   @endif
 
+  @if ($errors->any())
+   <div class="alert alert-danger">
+    <ul>
+     @foreach ($errors->all() as $error)
+       <li>{{ ($error) }}</li>
+     @endforeach
+     </ul>
+   </div>
+   @endif
+
     <h5 class="card-title">新規登録</h5>
     <form  method="POST" action="{{ route('user.patient.store')}}">
         @csrf

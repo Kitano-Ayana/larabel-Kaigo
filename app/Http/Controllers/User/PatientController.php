@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
+
 class PatientController extends Controller
 {
     /**
@@ -75,7 +76,7 @@ class PatientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePatient $request)
     {
         //Patientのインスタンス化
         $patient = new Patient;
@@ -106,7 +107,7 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        //
+        
         $patient = Patient::find($id);
         
         $gender = CheckPatientData::checkGender($patient);
