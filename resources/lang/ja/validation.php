@@ -123,6 +123,10 @@ return [
         'medicine' => '薬の服用確認',
         'high_pressure' => '血圧　収縮期',
         'low_pressure' => '血圧　拡張期',
+        'patient_name' => '患者さんの名前',
+        'email' => 'メールアドレス',
+        'age'=> '年齢',
+        'gender' => '性別',
     ],
 
 ];
