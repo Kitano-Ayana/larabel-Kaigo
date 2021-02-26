@@ -24,7 +24,6 @@ class StoreCondition extends FormRequest
     public function rules()
     {
         return [
-            //
             'comment' => 'required',
             'weight' => 'required',
             'high_pressure' => 'required',

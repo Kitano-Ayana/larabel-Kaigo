@@ -156,7 +156,7 @@ class AdminController extends Controller
                  ->orderBy('created_at', 'desc')
                  ->take(30)->get();
    
-           
+          
        $high_pressures= [];
        $low_pressures= [];
        $days=[];

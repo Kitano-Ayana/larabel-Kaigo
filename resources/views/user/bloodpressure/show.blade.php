@@ -16,9 +16,10 @@
 		
 
 	
-	//平均体重ログ
+	//高血圧ログ
     var high_pressure = @json($high_pressures);
     
+	//低血圧ログ
     var low_pressure = @json($low_pressures);
 
 		

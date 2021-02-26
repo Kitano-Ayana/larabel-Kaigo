@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">ログイン成功画面</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,6 @@
                         </div>
                     @endif
 
-                    ログインしました<br>
 
                     <a href=" {{ route('admin.user') }}">介護士一覧</a>
                 </div>

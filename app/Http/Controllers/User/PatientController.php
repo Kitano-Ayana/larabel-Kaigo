@@ -31,9 +31,10 @@ class PatientController extends Controller
         $search = $request->input('search');
 
         $query = DB::table('patients');
-        //もしキーワードがあれば
+        //キーワードがあればある場合
         if($search !== null) {
-            //全角スペースを半角に
+
+            //全角スペースを半角にする
             $search_split = mb_convert_kana($search, 's');
 
             //空白で区切る
@@ -44,8 +45,8 @@ class PatientController extends Controller
                 $query->where('patient_name','like','%'.$value.'%');
             }
         }
-                //
-        //$patients = DB::table('patients')
+                
+        //1ページ15件の患者情報を表示
         $query->where('user_id', Auth::id());
         $query->select('id','patient_name', 'age', 'created_at');
         $patients = $query->paginate(15);
@@ -76,9 +77,6 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //ログファイルに表示させる ddできない時のデバック方法
-       // Log::info($request->patients['patient_name']);
-
         //Patientのインスタンス化
         $patient = new Patient;
 
@@ -91,10 +89,9 @@ class PatientController extends Controller
         $patient->age = $request->input('age');
         $patient->gender = $request->input('gender');
 
-
-        
         $patient->save();
 
+        //患者一覧画面に移動
         return redirect()->route('user.patient.index');
       
 
@@ -128,7 +125,7 @@ class PatientController extends Controller
      */
     public function edit($id)
     {
-        //
+       
         $patient = Patient::find($id);
 
         return view('user.patient.edit', compact('patient'));
@@ -143,12 +140,11 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
         $patient = Patient::find($id);
 
         //データの保存
         $patient->user_id = Auth::id();
-        //dd($patient);
         $patient->patient_name = $request->input('patient_name');
         $patient->email = $request->input('email');
         $patient->age = $request->input('age');
@@ -156,7 +152,7 @@ class PatientController extends Controller
 
         $patient->save();
 
-
+        //患者一覧画面に移動
         return redirect()->route('user.patient.index');
 
 
@@ -170,15 +166,14 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-        //
-       // 
+ 
 
         $patient = Patient::find($id);
 
 
         $patient->delete();
 
-
+        //削除後、患者一覧画面に移動
         return redirect()->route('user.patient.index');
     }
 
