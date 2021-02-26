@@ -24,11 +24,13 @@ class BloodPressureController extends Controller
                  ->orderBy('created_at', 'desc')
                  ->take(30)->get();
    
-           
+       
+      //配列作成
        $high_pressures= [];
        $low_pressures= [];
        $days=[];
    
+       //高血圧、低血圧、日付のデータ取得
        foreach($logs as $log) {
            $highe_pressure = $log->high_pressure;
            $high_pressures[] = $highe_pressure;

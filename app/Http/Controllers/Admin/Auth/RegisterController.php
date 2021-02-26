@@ -28,16 +28,19 @@ class RegisterController extends Controller
         $this->middleware('guest:admin');
     }
 
+    // Guardの認証方法を指定
     protected function guard()
     {
         return Auth::guard('admin');
     }
 
+    // 新規登録画面
     public function showRegistrationForm()
     {
         return view('admin.auth.register');
     }
 
+    // バリデーション
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -47,6 +50,7 @@ class RegisterController extends Controller
         ]);
     }
 
+    // 登録処理
     protected function create(array $data)
     {
         return Admin::create([

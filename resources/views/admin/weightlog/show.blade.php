@@ -16,7 +16,7 @@
 		
 
 	
-	//平均体重ログ
+	//体重ログ
 	var weights = @json($weights);
 			//6月のデータ
 	

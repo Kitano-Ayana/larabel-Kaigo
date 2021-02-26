@@ -28,19 +28,20 @@ class ConditionController extends Controller
      */
     public function index($id)
     {
-                
+        //$conditions情報を日付の新しい順番に表示       
         $conditions = Condition::where('patient_id', $id)
                       ->orderBy('created_at', 'desc')
                       ->get();
 
         $condition = Condition::find($id);
         $patient = Patient::find($id);
+        
 
+        //$gender情報を数字から文字に変換
         $gender = CheckPatientData::checkGender($patient);
 
         return view('user.condition.index', 
         [
-         //'patient_id' => $id,
          'patient' => $patient,
          'conditions' => $conditions,
          'condition' => $condition,
@@ -104,12 +105,14 @@ class ConditionController extends Controller
      */
     public function show($id)
     {
+        //$condition->idが一致している＄condition情報の取得
         $condition = Condition::find($id);
 
+
         $patient_id = $condition->patient_id;
-        
         $patient = Patient::find($patient_id);
     
+        //トイレ項目０の時はトイレあり、トイレ項目1の時はトイレなしと表示
         if($condition->toilet === 0){
             $toilet = 'トイレあり';
           }
@@ -117,12 +120,11 @@ class ConditionController extends Controller
               $toilet = 'トイレなし';
           }
 
+
+          //服用確認0の時は服用確認と表示する
           if($condition->medicine === 0){
             $medicine = '服用確認';
-        }else{
-            $medicine = '服用未確認';
         }
-
          
         return view('user.condition.show', compact('condition','toilet','medicine','patient'));
         
@@ -130,37 +132,4 @@ class ConditionController extends Controller
         
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

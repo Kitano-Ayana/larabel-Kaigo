@@ -24,9 +24,12 @@ class WeightLogController extends Controller
               ->take(30)->get();
 
         
-    $weights= [];
-    $days=[];
+   
 
+     //体重と日付のデータ取得
+     $weights= [];
+     $days=[];
+     
     foreach($logs as $log) {
         $weight = $log->weight;
         $weights[] = $weight;
