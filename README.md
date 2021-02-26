@@ -25,7 +25,7 @@ mysql 5.5.68-MariaDB/ AWS(EC2,S3)<br>
  git(gitHub) / Visual Studio Code 
 
 ## サイトへのリンク　テストユーザー<br>
-URL： http://3.113.96.103　<br>
+URL：http://3.113.96.103 　<br>
 【テストユーザー：介護士】          <br>
 名前：test1             <br>
 メールアドレス：test1@test.com <br>
